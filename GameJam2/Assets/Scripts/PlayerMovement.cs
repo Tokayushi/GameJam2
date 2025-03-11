@@ -33,7 +33,8 @@ public class PlayerMovement : MonoBehaviour
         }
 
         // Salto con Coyote Time
-        if (Input.GetKeyDown(KeyCode.Space) && coyoteTimeCounter > 0)
+        if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)) && coyoteTimeCounter > 0)
+
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             coyoteTimeCounter = 0; // Evitar saltos múltiples en el aire
