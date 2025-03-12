@@ -9,7 +9,7 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
 
     // Coyote Time
-    public float coyoteTime = 0.2f; // Tiempo extra para saltar después de caer
+    public float coyoteTime = 0.2f; // Tiempo extra para saltar despuï¿½s de caer
     private float coyoteTimeCounter;
 
     void Start()
@@ -34,7 +34,7 @@ public class PlayerMovement : MonoBehaviour
             animator.SetBool("isRunning", false);
         }
 
-        // Girar personaje según la dirección del movimiento
+        // Girar personaje segï¿½n la direcciï¿½n del movimiento
         if (move > 0)
             transform.localScale = new Vector3(1, 1, 1);
         else if (move < 0)
@@ -54,7 +54,8 @@ public class PlayerMovement : MonoBehaviour
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)) && coyoteTimeCounter > 0)
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
-            coyoteTimeCounter = 0; // Evitar saltos múltiples en el aire
+            coyoteTimeCounter = 0; // Evitar saltos mï¿½ltiples en el aire
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.victorySound);
         }
     }
 
