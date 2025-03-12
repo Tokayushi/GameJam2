@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
     public float jumpForce = 7f;
     private Rigidbody2D rb;
     private bool isGrounded;
+    private Animator animator;
 
     // Coyote Time
     public float coyoteTime = 0.2f; // Tiempo extra para saltar después de caer
@@ -14,6 +15,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>(); // Obtener el Animator
     }
 
     void Update()
@@ -21,6 +23,22 @@ public class PlayerMovement : MonoBehaviour
         // Movimiento horizontal
         float move = Input.GetAxis("Horizontal");
         rb.linearVelocity = new Vector2(move * speed, rb.linearVelocity.y);
+
+        // Control de animaciones
+        if (move != 0)
+        {
+            animator.SetBool("isRunning", true);
+        }
+        else
+        {
+            animator.SetBool("isRunning", false);
+        }
+
+        // Girar personaje según la dirección del movimiento
+        if (move > 0)
+            transform.localScale = new Vector3(1, 1, 1);
+        else if (move < 0)
+            transform.localScale = new Vector3(-1, 1, 1);
 
         // Actualizar el temporizador de Coyote Time
         if (isGrounded)
@@ -34,7 +52,6 @@ public class PlayerMovement : MonoBehaviour
 
         // Salto con Coyote Time
         if ((Input.GetKeyDown(KeyCode.Space) || Input.GetKeyDown(KeyCode.UpArrow)) && coyoteTimeCounter > 0)
-
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             coyoteTimeCounter = 0; // Evitar saltos múltiples en el aire
@@ -58,3 +75,4 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 }
+
