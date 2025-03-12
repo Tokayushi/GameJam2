@@ -912,6 +912,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 285630095000028894, guid: 60dae2402b4a02c4d9b718c9a88bdf16, type: 3}
+      propertyPath: m_Name
+      value: MusicSource
+      objectReference: {fileID: 0}
+    - target: {fileID: 1592692203825116432, guid: 60dae2402b4a02c4d9b718c9a88bdf16, type: 3}
+      propertyPath: m_Name
+      value: SFXSource
+      objectReference: {fileID: 0}
     - target: {fileID: 3916376168319516773, guid: 60dae2402b4a02c4d9b718c9a88bdf16, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.0169501
@@ -956,6 +964,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6412354690526281065, guid: 60dae2402b4a02c4d9b718c9a88bdf16, type: 3}
+      propertyPath: jumpSound
+      value: 
+      objectReference: {fileID: 8300000, guid: e4e945ec8e901584a9d0e2451e8f81e2, type: 3}
+    - target: {fileID: 6412354690526281065, guid: 60dae2402b4a02c4d9b718c9a88bdf16, type: 3}
+      propertyPath: pastMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: 3f18b284422e483468e82dc17bce2492, type: 3}
+    - target: {fileID: 6412354690526281065, guid: 60dae2402b4a02c4d9b718c9a88bdf16, type: 3}
+      propertyPath: presentMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: dda3c5bf426cf3442ad131079f67a2fe, type: 3}
+    - target: {fileID: 6412354690526281065, guid: 60dae2402b4a02c4d9b718c9a88bdf16, type: 3}
+      propertyPath: mainMenuMusic
+      value: 
+      objectReference: {fileID: 8300000, guid: de51f54ed1900cd46a5d391f6606ff22, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

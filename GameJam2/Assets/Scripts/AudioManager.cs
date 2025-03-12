@@ -1,23 +1,27 @@
 using UnityEngine;
 using UnityEngine.Audio;
-using UnityEngine.Rendering;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
-    
-
-
     public static AudioManager Instance { get; private set; }
 
-    [SerializeField] AudioSource sfxAudio, musicAudio;
-    public AudioClip initialMusic;
-    [SerializeField] AudioMixer Master;
+    [SerializeField] private AudioSource sfxAudio, musicAudio;
+    [SerializeField] private AudioMixer Master;
+
+    [Header("Música de Fondo")]
+    public AudioClip mainMenuMusic;
+    public AudioClip pastMusic;
+    public AudioClip presentMusic;
+
     [Header("Efectos de sonido")]
-    [SerializeField] public AudioClip jumpSound;
-    [SerializeField] public AudioClip deathSound;
-    [SerializeField] public AudioClip victorySound;
-    [SerializeField] public AudioClip timeChangeSound;
-   
+    public AudioClip jumpSound;
+    public AudioClip deathSound;
+    public AudioClip victorySound;
+    public AudioClip timeChangeSound;
+
+    private bool isInPast = true; // Indica si el jugador está en el pasado
+
     private void Awake()
     {
         if (Instance == null)
@@ -30,15 +34,44 @@ public class AudioManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    void Start()
+
+    private void Start()
     {
         sfxAudio = transform.GetChild(0).GetComponent<AudioSource>();
         musicAudio = transform.GetChild(1).GetComponent<AudioSource>();
-        //iniciar la musica
-        InitialPlayMusic(initialMusic);
+
+        // Reproducir la música según la escena
+        UpdateMusic(SceneManager.GetActiveScene().name);
+
+        // Suscribirse al cambio de escena
+        SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
-    
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        UpdateMusic(scene.name);
+    }
+
+    private void Update()
+    {
+        if (SceneManager.GetActiveScene().name == "GameScene" && Input.GetKeyDown(KeyCode.T))
+        {
+            ToggleTime();
+        }
+    }
+
+    private void UpdateMusic(string sceneName)
+    {
+        if (sceneName == "MainMenu")
+        {
+            PlayMusic(mainMenuMusic);
+        }
+        else if (sceneName == "GameScene")
+        {
+            PlayMusic(isInPast ? pastMusic : presentMusic);
+        }
+    }
+
     public void PlaySFX(AudioClip clip)
     {
         sfxAudio.PlayOneShot(clip);
@@ -46,29 +79,28 @@ public class AudioManager : MonoBehaviour
 
     public void PlayMusic(AudioClip clip)
     {
+        if (musicAudio.clip == clip) return; // Evita reiniciar la misma música
+
         musicAudio.Stop();
         musicAudio.clip = clip;
         musicAudio.Play();
         musicAudio.loop = true;
-
     }
-    public void InitialPlayMusic(AudioClip clip)
-    {
 
-        musicAudio.clip = clip;
-        musicAudio.Play();
-        musicAudio.loop = true;
+    private void ToggleTime()
+    {
+        isInPast = !isInPast;
+        PlayMusic(isInPast ? pastMusic : presentMusic);
+        PlaySFX(timeChangeSound);
     }
 
     public void MusicVolumeControl(float volume)
     {
-        Master.SetFloat("Musica",volume);
-
-
+        Master.SetFloat("Musica", volume);
     }
+
     public void SFXVolumeControl(float volume)
     {
-        Master.SetFloat("SFX",volume);
+        Master.SetFloat("SFX", volume);
     }
-
 }
