@@ -17397,8 +17397,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 758275854}
-  - {fileID: 1716021450}
   - {fileID: 1360649873}
+  - {fileID: 1727728845}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &453606390
@@ -85818,6 +85818,53 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1180640391
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1180640393}
+  - component: {fileID: 1180640392}
+  m_Layer: 0
+  m_Name: timeManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1180640392
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180640391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7189cf88c3ec0c542aef09616fb3cd72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panelNegro: {fileID: 1058338985}
+  tiempoMaximo: 2
+  velocidadOscurecimiento: 0.5
+--- !u!4 &1180640393
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1180640391}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 68.1824, y: 3.6043117, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1197994006
 GameObject:
   m_ObjectHideFlags: 0
@@ -132739,7 +132786,7 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 1716021450}
+  - component: {fileID: 1727728845}
   - component: {fileID: 1716021452}
   - component: {fileID: 1716021451}
   m_Layer: 0
@@ -132749,36 +132796,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1727728844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1727728843}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7189cf88c3ec0c542aef09616fb3cd72, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  panelNegro: {fileID: 1058338985}
-  tiempoMaximo: 2
-  velocidadOscurecimiento: 0.5
---- !u!4 &1727728845
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1716021449}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 15.94, y: -3.88, z: 0.035553016}
-  m_LocalScale: {x: 3.8001, y: 3.8001, z: 3.8001}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 432096038}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1716021451
 Animator:
   serializedVersion: 7
@@ -132856,6 +132873,21 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!4 &1727728845
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1716021449}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 15.94, y: -3.88, z: 0.035553016}
+  m_LocalScale: {x: 3.8001, y: 3.8001, z: 3.8001}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 432096038}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1739320140
 GameObject:
   m_ObjectHideFlags: 0
@@ -169221,7 +169253,8 @@ SceneRoots:
   - {fileID: 1322115177}
   - {fileID: 1235670342}
   - {fileID: 1967794003}
-  - {fileID: 1727728845}
   - {fileID: 1529581001}
   - {fileID: 1034218250}
   - {fileID: 246882967}
+  - {fileID: 432096038}
+  - {fileID: 1180640393}
