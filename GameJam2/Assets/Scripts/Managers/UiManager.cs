@@ -13,11 +13,20 @@ public class UiManager : MonoBehaviour
 
     private void Start()
     {
+        //tuto 
         tuto.SetActive(false);
         tutorialParts[0].SetActive(true);
         tutorialParts[1].SetActive(false);
         tutorialParts[2].SetActive(false);
         tutorialParts[3].SetActive(false);
+
+      
+    }
+
+    private void Update()
+    {
+       
+
     }
 
     public void NextTutoPart()

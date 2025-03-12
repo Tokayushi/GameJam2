@@ -5,7 +5,7 @@ public class PlayerMovement : MonoBehaviour
     public float speed = 5f;
     public float jumpForce = 7f;
     private Rigidbody2D rb;
-    private bool isGrounded;
+    public bool isGrounded;
     private Animator animator;
 
     // Coyote Time
@@ -62,9 +62,9 @@ public class PlayerMovement : MonoBehaviour
     }
 
     // Detectar suelo
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionStay2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("past") || collision.gameObject.CompareTag("present") || collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = true;
         }
@@ -72,7 +72,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Ground"))
+        if (collision.gameObject.CompareTag("past") || collision.gameObject.CompareTag("present") || collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
         }
