@@ -16,8 +16,8 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>(); // Obtener el Animator
-       // AudioManager.Instance.PlayMusic(AudioManager.Instance.presentMusic);
-
+        AudioManager.Instance.PlayMusic(AudioManager.Instance.presentMusic);
+        
     }
 
     void Update()

@@ -637,8 +637,8 @@ MonoBehaviour:
     Or at least, that''s what I wanted to believe. But the truth is, I never really
     left here, not really.
 
-    It''s time to look for what I lost. Among these
-    shadows of what was, there must be answers.'
+    It''s time to look for what I lost. Among these shadows
+    of what was, there must be answers.'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ae64b43cecbb88941b05bb04084b8ac0, type: 2}
   m_sharedMaterial: {fileID: -5404536195513990363, guid: ae64b43cecbb88941b05bb04084b8ac0, type: 2}
@@ -6675,7 +6675,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'you can move with the left and right arrows
 
-    
+
 
 '
   m_isRightToLeft: 0
@@ -8021,9 +8021,9 @@ MonoBehaviour:
     same place anymore, maybe it never will be. Now, only ruins remain. I''ve come
     back to find answers.
 
-    
 
-    
+
+
 
 '
   m_isRightToLeft: 0
@@ -8709,10 +8709,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4053227656850819914}
   - {fileID: 9219274207702590165}
   - {fileID: 331025922228150509}
   - {fileID: 6513224919654466821}
+  - {fileID: 4053227656850819914}
   m_Father: {fileID: 704912062607974592}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
