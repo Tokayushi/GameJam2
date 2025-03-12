@@ -17,8 +17,7 @@ public class AudioManager : MonoBehaviour
     [SerializeField] public AudioClip deathSound;
     [SerializeField] public AudioClip victorySound;
     [SerializeField] public AudioClip timeChangeSound;
-    [Range(0.0001f, 1f)] public float musicVolume = 0.5f;
-    [Range(0.0001f, 1f)] public float sfxVolume = 0.5f;
+   
     private void Awake()
     {
         if (Instance == null)
@@ -36,17 +35,13 @@ public class AudioManager : MonoBehaviour
         sfxAudio = transform.GetChild(0).GetComponent<AudioSource>();
         musicAudio = transform.GetChild(1).GetComponent<AudioSource>();
         //iniciar la musica
-       
+        InitialPlayMusic(initialMusic);
     }
 
-    private void Update()
-    {
-        MusicVolumeControl(musicVolume);
-        SFXVolumeControl(sfxVolume);
-    }
+    
     public void PlaySFX(AudioClip clip)
     {
-        sfxAudio.PlayOneShot(clip, sfxVolume);
+        sfxAudio.PlayOneShot(clip);
     }
 
     public void PlayMusic(AudioClip clip)
@@ -65,15 +60,15 @@ public class AudioManager : MonoBehaviour
         musicAudio.loop = true;
     }
 
-    void MusicVolumeControl(float volume)
+    public void MusicVolumeControl(float volume)
     {
-        Master.SetFloat("Musica",Mathf.Log10(volume) * 20);
+        Master.SetFloat("Musica",volume);
 
 
     }
-    void SFXVolumeControl(float volume)
+    public void SFXVolumeControl(float volume)
     {
-        Master.SetFloat("SFX",Mathf.Log10(volume) * 20);
+        Master.SetFloat("SFX",volume);
     }
 
 }

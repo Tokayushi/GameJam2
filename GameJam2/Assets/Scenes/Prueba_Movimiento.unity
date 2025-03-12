@@ -435,11 +435,6 @@ MonoBehaviour:
   speed: 5
   jumpForce: 7
   coyoteTime: 0.1
---- !u!82 &432719946 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 7721853601077694384, guid: 60dae2402b4a02c4d9b718c9a88bdf16, type: 3}
-  m_PrefabInstance: {fileID: 5798653363555526806}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &731176431
 GameObject:
   m_ObjectHideFlags: 0
@@ -602,11 +597,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 2007196393}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &1422783964 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 1789565590827425822, guid: 60dae2402b4a02c4d9b718c9a88bdf16, type: 3}
-  m_PrefabInstance: {fileID: 5798653363555526806}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1658137353
 GameObject:
   m_ObjectHideFlags: 0
@@ -943,14 +933,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: AudioManager
       objectReference: {fileID: 0}
-    - target: {fileID: 6412354690526281065, guid: 60dae2402b4a02c4d9b718c9a88bdf16, type: 3}
-      propertyPath: sfxAudio
-      value: 
-      objectReference: {fileID: 432719946}
-    - target: {fileID: 6412354690526281065, guid: 60dae2402b4a02c4d9b718c9a88bdf16, type: 3}
-      propertyPath: musicAudio
-      value: 
-      objectReference: {fileID: 1422783964}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

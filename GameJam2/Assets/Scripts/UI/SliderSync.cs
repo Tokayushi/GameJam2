@@ -4,7 +4,7 @@ using UnityEngine.UI;
 public class SliderSync : MonoBehaviour
 {
     // Sliders que queremos sincronizar
-    [SerializeField] private Slider sliderPastMusic, sliderPastSFX, sliderFutureMusic, sliderFutureSFX;
+    [SerializeField] public Slider sliderPastMusic, sliderPastSFX, sliderFutureMusic, sliderFutureSFX;
 
     // Bandera para evitar actualizaciones infinitas entre sliders
     private bool isUpdating = false;
@@ -33,24 +33,40 @@ public class SliderSync : MonoBehaviour
     }
 
     // Función que actualiza sliderFutureMusic cuando sliderPastMusic cambia
-    void UpdateFutureMusic(float value)
+    public void UpdateFutureMusic(float value)
     {
         // Si ya estamos actualizando otro slider, evitamos una actualización en bucle
         if (!isUpdating && sliderFutureMusic != null)
         {
             isUpdating = true; // Activamos la bandera para evitar loops
             sliderFutureMusic.value = value; // Asignamos el nuevo valor
+            AudioManager.Instance.MusicVolumeControl(value); // Actualizamos el volumen de la música
             isUpdating = false; // Desactivamos la bandera para permitir futuras actualizaciones
         }
     }
+    public void UpdateMusicVolume()
+    {
+        if (sliderPastMusic != null)
+        {
+            AudioManager.Instance.MusicVolumeControl(sliderPastMusic.value);
+        }
+    }
 
+    public void UpdateSfxVolume()
+    {
+        if (sliderPastSFX != null)
+        {
+            AudioManager.Instance.SFXVolumeControl(sliderPastSFX.value);
+        }
+    }
     // Función que actualiza sliderPastMusic cuando sliderFutureMusic cambia
-    void UpdatePastMusic(float value)
+    public void UpdatePastMusic(float value)
     {
         if (!isUpdating && sliderPastMusic != null)
         {
             isUpdating = true;
             sliderPastMusic.value = value;
+            AudioManager.Instance.MusicVolumeControl(value);
             isUpdating = false;
         }
     }
@@ -62,6 +78,7 @@ public class SliderSync : MonoBehaviour
         {
             isUpdating = true;
             sliderFutureSFX.value = value;
+            AudioManager.Instance.SFXVolumeControl(value);
             isUpdating = false;
         }
     }
@@ -73,6 +90,7 @@ public class SliderSync : MonoBehaviour
         {
             isUpdating = true;
             sliderPastSFX.value = value;
+            AudioManager.Instance.SFXVolumeControl(value);
             isUpdating = false;
         }
     }

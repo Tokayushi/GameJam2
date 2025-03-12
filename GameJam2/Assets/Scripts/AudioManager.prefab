@@ -306,11 +306,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sfxAudio: {fileID: 7721853601077694384}
   musicAudio: {fileID: 1789565590827425822}
-  initialMusic: {fileID: 8300000, guid: 13b481262ca11bc4cbfa819b6dfe28cc, type: 3}
+  initialMusic: {fileID: 0}
   Master: {fileID: 24100000, guid: 05781bf41d7b28d42bd96c4cf9aa7485, type: 2}
-  jumpSound: {fileID: 0}
-  deathSound: {fileID: 0}
-  victorySound: {fileID: 0}
-  timeChangeSound: {fileID: 0}
-  musicVolume: 0.5
-  sfxVolume: 0.5
+  jumpSound: {fileID: 8300000, guid: 13b481262ca11bc4cbfa819b6dfe28cc, type: 3}
+  deathSound: {fileID: 8300000, guid: 1d2f348735857f047b7a5defd60d930a, type: 3}
+  victorySound: {fileID: 8300000, guid: 24353dbe559990d418b1aed10cbb1924, type: 3}
+  timeChangeSound: {fileID: 8300000, guid: 7da886a070ddeee4ba6bc0fd415e462c, type: 3}
