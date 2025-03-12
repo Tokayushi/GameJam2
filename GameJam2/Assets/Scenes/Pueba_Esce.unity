@@ -132731,11 +132731,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
-<<<<<<< HEAD
---- !u!1 &1727728843
-=======
 --- !u!1 &1716021449
->>>>>>> main
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -132743,24 +132739,16 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<< HEAD
-  - component: {fileID: 1727728845}
-  - component: {fileID: 1727728844}
-  m_Layer: 0
-  m_Name: TimeManager
-=======
   - component: {fileID: 1716021450}
   - component: {fileID: 1716021452}
   - component: {fileID: 1716021451}
   m_Layer: 0
   m_Name: Ghost (1)
->>>>>>> main
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<< HEAD
 --- !u!114 &1727728844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -132777,25 +132765,11 @@ MonoBehaviour:
   tiempoMaximo: 2
   velocidadOscurecimiento: 0.5
 --- !u!4 &1727728845
-=======
---- !u!4 &1716021450
->>>>>>> main
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
-  m_GameObject: {fileID: 1727728843}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 28.426416, y: -1.2977345, z: -7.7377787}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-=======
   m_GameObject: {fileID: 1716021449}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
@@ -132882,7 +132856,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
->>>>>>> main
 --- !u!1 &1739320140
 GameObject:
   m_ObjectHideFlags: 0
@@ -169248,11 +169221,7 @@ SceneRoots:
   - {fileID: 1322115177}
   - {fileID: 1235670342}
   - {fileID: 1967794003}
-<<<<<<< HEAD
   - {fileID: 1727728845}
   - {fileID: 1529581001}
   - {fileID: 1034218250}
   - {fileID: 246882967}
-=======
-  - {fileID: 432096038}
->>>>>>> main
