@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        
     }
 
     void Update()
@@ -38,6 +39,7 @@ public class PlayerMovement : MonoBehaviour
         {
             rb.linearVelocity = new Vector2(rb.linearVelocity.x, jumpForce);
             coyoteTimeCounter = 0; // Evitar saltos múltiples en el aire
+            AudioManager.Instance.PlaySFX(AudioManager.Instance.victorySound);
         }
     }
 
