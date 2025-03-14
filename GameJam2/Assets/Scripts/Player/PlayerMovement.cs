@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     private Rigidbody2D rb;
     public bool isGrounded;
     private Animator animator;
+    private bool isWalking;
+    private bool inPast = false; // Controla en qué tiempo estamos
 
     // Coyote Time
     public float coyoteTime = 0.2f; // Tiempo extra para saltar despu�s de caer
@@ -16,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>(); // Obtener el Animator
-        AudioManager.Instance.PlayMusic(AudioManager.Instance.presentMusic);
+        //AudioManager.Instance.PlayMusic(AudioManager.Instance.presentMusic);
         
     }
 
@@ -30,17 +32,24 @@ public class PlayerMovement : MonoBehaviour
         if (move != 0)
         {
             animator.SetBool("isRunning", true);
+
+            if (isGrounded && !isWalking)
+            {
+                AudioManager.Instance.PlaySFX(AudioManager.Instance.WalkSound);
+                isWalking = true;
+            }
         }
         else
         {
             animator.SetBool("isRunning", false);
+            isWalking = false; // Detener el sonido de caminar
         }
 
         // Girar personaje seg�n la direcci�n del movimiento
         if (move > 0)
-            transform.localScale = new Vector3(1, 1, 1);
+            transform.localScale = new Vector3(2, 2, 2);
         else if (move < 0)
-            transform.localScale = new Vector3(-1, 1, 1);
+            transform.localScale = new Vector3(-2, 2, 2);
 
         // Actualizar el temporizador de Coyote Time
         if (isGrounded)
@@ -59,6 +68,19 @@ public class PlayerMovement : MonoBehaviour
             coyoteTimeCounter = 0; // Evitar saltos m�ltiples en el aire
             AudioManager.Instance.PlaySFX(AudioManager.Instance.jumpSound);
         }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            inPast = !inPast; // Alterna entre pasado y presente
+            if (inPast)
+            {
+                AudioManager.Instance.PlayMusic(AudioManager.Instance.pastMusic);
+            }
+            else
+            {
+                AudioManager.Instance.PlayMusic(AudioManager.Instance.presentMusic);
+            }
+        }
     }
 
     // Detectar suelo
@@ -75,7 +97,13 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("past") || collision.gameObject.CompareTag("present") || collision.gameObject.CompareTag("Ground"))
         {
             isGrounded = false;
+            isWalking = false;
         }
+    }
+
+    public void Die()
+    {
+        AudioManager.Instance.PlaySFX(AudioManager.Instance.deathSound);
     }
 }
 
